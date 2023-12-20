@@ -1,0 +1,26 @@
+#!/usr/bin/env osascript -l AppleScript
+
+-- https://dailytimetracking.com/support?utm_source=App#faq-applescript-export
+
+tell application "Daily"
+
+set LastWeek to (current date) - (7 * days)
+set Today to (current date)
+
+set Location to "/Users/delon/Business/timely-sync"
+
+-- export csv with report "summary" from LastWeek to Today with delimiter "," with duration format "H:mm:ss" to file (POSIX file (Location & "summary.csv")) with time rounding
+-- export csv with report "daily" from LastWeek to Today with delimiter "," with duration format "minutes" to file (POSIX file (Location & "daily.csv")) without time rounding
+
+-- export json with report "summary" from LastWeek to Today with duration format "text" to file (POSIX file (Location & "summary.json")) with time rounding
+-- export json with report "daily" from LastWeek to Today with duration format "seconds" to file (POSIX file (Location & "daily.json")) without time rounding
+
+-- export activities to file (POSIX file (Location & "activities.json"))
+
+-- export toggl from LastWeek to Today with email "hello@dailytimetracking.com" using format "[%client%] %project%" and fallback "client" with tags "" billable "yes" to file (POSIX file (Location & "toggl.csv"))
+
+print json with report "daily" from Today to Today with duration format "H:mm" with time rounding
+
+-- print activities
+
+end tell
